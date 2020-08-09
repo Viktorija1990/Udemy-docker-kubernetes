@@ -16,7 +16,7 @@ Starting up the image
 docker run simpleweb
 ```
 
-Container port mapping. Route incoming requests to port 8080 on localhost to post 8080 inside the container
+Container port mapping. Route incoming requests to port 8080 on localhost to port 8080 inside the container
 ```
 docker run -p 8080:8080 simpleweb
 ```
