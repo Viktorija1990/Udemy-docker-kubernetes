@@ -23,7 +23,7 @@ docker run -p 8080:8080 simpleweb
 
 Now go to localhost:8080 on the browser.
 
-Type commands inside the container or see sontainer's files
+Type commands inside the container or see container's files
 ```
 docker run -it simpleweb sh
 ```
