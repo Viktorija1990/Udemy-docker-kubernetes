@@ -63,12 +63,7 @@ docker build -f Dockerfile.dev .
 ```
 
 ```
-docker run -it -p 3000:3000 -v /app/node_modules -v C:/Users/Viktorija/MyGit/Udemy-docker-kubernetes/reactapp/frontend:/app 920451d0289d CONTAINER_ID
-```
-
-Run again:
-```
-docker run -it -p 3000:3000 CONTAINER_ID
+docker run -it -p 3000:3000 -v /app/node_modules -v C:/Users/Viktorija/MyGit/Udemy-docker-kubernetes/reactapp/frontend:/app CONTAINER_ID
 ```
 
 Now go to localhost:3000 on the browser. You will be able now to see the changes made in App.js. 
