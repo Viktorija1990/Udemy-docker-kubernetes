@@ -10,3 +10,13 @@ services:
     volumes:
       - /app/node_modules
       - .:/app # . indicates current working directory
+    # if we want tests running in docker compose.
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
+  

@@ -68,10 +68,56 @@ docker run -it -p 3000:3000 -v /app/node_modules -v C:/Users/Viktorija/MyGit/Ude
 
 Now go to localhost:3000 on the browser. You will be able now to see the changes made in App.js. 
 
-### Docker Compose & Volumes
+#### Docker Compose & Volumes
 
 Create a file docker-compose.yml and additionaly specify volumes.
 
 Then, run `docker-compose up`. That won't work. We have to make adjustments to be able to rebuild Dockerfile.dev within docker-compose.yml (4th row).
 
 Solution: add `context: .` and `dockerfile: Dockerfile.dev` in docker-compose.yml build section.
+
+### Executing tests
+
+Get CONTAINER_ID>
+```
+docker build -f Dockerfile.dev .
+```
+
+This will run tests that are in App.test.js file:
+```
+docker run -it CONTAINER_ID npm run test
+```
+
+#### 1.Live updating tests
+
+If we want to make changes in our test file App.test.js file and avoid adding volumes like above, there is a workaround. The downside: It is not the best solution though, hard to remember!
+
+Get existing container's CONTAINER_ ID:
+```
+docker ps
+```
+
+Go into running container and execute the command below. This will react to the changes added to App.test.js file live:
+```
+docker exec -it CONTAINER_ID npm run test
+```
+
+#### 2.Docker compose for running tests
+
+We add one more service (tests) in docker-compose.yml file. The downside: we are getting output of tests inside of logging interface of docker compose and we dont have ability (for stdin) to press enter for example to rerun tests or hit w to get some options to appear.
+
+### Prod env
+
+NGINX will be used, popular web server, it's just about taking incoming traffic and responding to it with some static files. We will create a separate Docker file which is gonna create a prod version of our container. For that we will need:
+
+Dockerfile with multi step builds. Two FROM blocks within the same Dockefile (not Dockerfile.dev). Then run:
+
+```
+docker build .
+```
+
+and 
+
+```
+docker run -it -p 3000:3000 CONTAINER_ID
+```
