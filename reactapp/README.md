@@ -78,7 +78,7 @@ Solution: add `context: .` and `dockerfile: Dockerfile.dev` in docker-compose.ym
 
 ### Executing tests
 
-Get CONTAINER_ID>
+Get CONTAINER_ID:
 ```
 docker build -f Dockerfile.dev .
 ```
