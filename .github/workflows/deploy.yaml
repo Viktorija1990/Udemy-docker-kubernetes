@@ -4,18 +4,19 @@ on:
   push:
     branches:
       - master
+    # TO DO. limit these workflows so that they trigger only when a particular path is pushed.
     paths:
       - 'reactapp/frontend/**'
 
 jobs:
   execute-tests:
     name:  build and run test 
-    # This job runs on Linux
+    # this job runs on Linux
     runs-on: ubuntu-latest
     steps:
       - name: build
         # add tag if u want, reactapp_tag in this case
-        run: docker build reactapp_tag -f reactapp/frontend/Dockerfile.dev .
+        run: docker build -f Dockerfile.dev .
         - uses: ././.github/workflows/deploy
       - name: run tests
         # -- --coverage mean npm run will exist command line when tests are done
