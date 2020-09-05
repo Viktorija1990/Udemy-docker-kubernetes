@@ -1,0 +1,16 @@
+name: CI/CS section 7 
+
+on: push
+
+jobs:
+  execute-tests:
+    name:  build and run test 
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        # add tag if u want, reactapp_tag in this case
+        run: docker build reactapp_tag -f Dockerfile.dev .   
+      - name: run tests
+        # -- --coverage mean npm run will exist command line when tests are done
+        run: docker run -it reactapp_tag npm run test -- --coverage
