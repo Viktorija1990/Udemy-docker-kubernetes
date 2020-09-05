@@ -2,6 +2,8 @@ name: CI/CS section 7
 
 on:
   push:
+    branches:
+      - master
     paths:
       - 'reactapp/frontend/**'
 
