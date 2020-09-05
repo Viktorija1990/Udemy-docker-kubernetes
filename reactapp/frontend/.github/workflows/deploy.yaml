@@ -1,6 +1,9 @@
 name: CI/CS section 7 
 
-on: push
+on:
+  push:
+    paths:
+      - 'reactapp/frontend/**'
 
 jobs:
   execute-tests:
