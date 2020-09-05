@@ -15,8 +15,7 @@ jobs:
     steps:
       - name: build
         # add tag if u want, reactapp_tag in this case
-        run: docker build reactapp_tag -f Dockerfile.dev .
-        - uses: ./.github/actions/automatic-tests   
+        run: docker build reactapp_tag -f Dockerfile.dev .  
       - name: run tests
         # -- --coverage mean npm run will exist command line when tests are done
         run: docker run -it reactapp_tag npm run test -- --coverage
