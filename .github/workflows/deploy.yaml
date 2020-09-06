@@ -22,5 +22,5 @@ jobs:
         # -- --coverage means npm run will exit command line when tests are done
       - name: run tests
         run:
-          docker run CI=true reactapp_tag npm run test -- --coverage
+          docker run -it CI=true reactapp_tag npm run test -- --coverage
 
