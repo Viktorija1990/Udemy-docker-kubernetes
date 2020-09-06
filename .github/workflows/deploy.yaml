@@ -1,11 +1,11 @@
-name: CI/CS section 7 
+name: CI/CD section 7 
 
 on:
   push:
     branches:
       - master
     # TO DO. limit these workflows so that they trigger only when a particular path is pushed.
-    #paths:
+    # paths:
     #  - 'reactapp/frontend/**'
 
 jobs:
