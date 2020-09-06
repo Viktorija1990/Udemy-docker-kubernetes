@@ -14,16 +14,16 @@ jobs:
     # this job runs on Linux
     runs-on: ubuntu-latest
     steps:
-      #- uses: ./.github/workflows/deploy
-        #with:
-        #  path: reactapp/frontend
-        #  dockerfile: reactapp/frontend/Dockerfile.dev
-        # add tag if u want, reactapp_tag in this case
-        # run: docker build -f Dockerfile.dev . 
-      - uses: ./.github/workflows/deploy
-      - name: build
-      - run: docker build . --file Dockerfile.dev --tag reactapp_tag:latest 
-        working-directory: reactapp/frontend/
-        # -- --coverage mean npm run will exist command line when tests are done
-      - run: docker run -it reactapp_tag npm run test -- --coverage
-        working-directory: reactapp/frontend/
+    #- uses: ./.github/workflows/deploy
+      #with:
+      #  path: reactapp/frontend
+      #  dockerfile: reactapp/frontend/Dockerfile.dev
+      # add tag if u want, reactapp_tag in this case
+      # run: docker build -f Dockerfile.dev . 
+    - uses: ./.github/workflows/deploy
+    - name: build
+    - run: docker build . --file Dockerfile.dev --tag reactapp_tag:latest 
+      working-directory: reactapp/frontend/
+      # -- --coverage mean npm run will exist command line when tests are done
+    - run: docker run -it reactapp_tag npm run test -- --coverage
+      working-directory: reactapp/frontend/
