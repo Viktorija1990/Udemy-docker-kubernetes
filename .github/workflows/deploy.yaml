@@ -22,7 +22,7 @@ jobs:
         # run: docker build -f Dockerfile.dev . 
       - name: build
         run: docker build . --file Dockerfile.dev --tag reactapp_tag:latest 
-        / working-directory: reactapp/frontend/
+        - working-directory: reactapp/frontend/
         - uses: ./.github/workflows/deploy
       - name: run tests
         # -- --coverage mean npm run will exist command line when tests are done
