@@ -19,8 +19,9 @@ jobs:
         run: |
           cd reactapp/frontend
           docker build -t reactapp_tag -f Dockerfile.dev .
-        # -- --coverage mean npm run will exist command line when tests are done
+        # -- --coverage means npm run will exit command line when tests are done
       - name: run tests
-        run:
-          docker run reactapp_tag npm run test -- --coverage
+        run: |
+          cd reactapp/frontend
+          docker run CI=true reactapp_tag npm run test -- --coverage
 
