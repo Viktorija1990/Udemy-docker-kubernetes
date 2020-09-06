@@ -20,12 +20,13 @@ jobs:
       #  dockerfile: reactapp/frontend/Dockerfile.dev
       # add tag if u want, reactapp_tag in this case
       # run: docker build -f Dockerfile.dev . 
-    - uses: ./.github/workflows/deploy
+    #- uses: ./.github/workflows/deploy
     - name: build
       uses: ./.github/workflows/deploy
-      run: docker build . --file Dockerfile.dev --tag reactapp_tag:latest 
       working-directory: reactapp/frontend/
+      run: docker build . --file Dockerfile.dev --tag reactapp_tag:latest 
       # -- --coverage mean npm run will exist command line when tests are done
     - name: run tests
-      run: docker run -it reactapp_tag npm run test -- --coverage
       working-directory: reactapp/frontend/
+      run: docker run -it reactapp_tag npm run test -- --coverage
+      
