@@ -27,6 +27,7 @@ jobs:
       - run: docker build . --file Dockerfile.dev --tag reactapp_tag:latest 
         # -- --coverage mean npm run will exist command line when tests are done
       - name: run tests
-          working-directory: reactapp/frontend/
+        uses: ./.github/workflows/deploy
+        working-directory: reactapp/frontend/
       - run: docker run -it reactapp_tag npm run test -- --coverage
       
