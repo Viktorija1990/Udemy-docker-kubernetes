@@ -21,7 +21,7 @@ jobs:
       # add tag if u want, reactapp_tag in this case
       # run: docker build -f Dockerfile.dev . 
     #- uses: ./.github/workflows/deploy
-      - uses: actions/checkout@v2
+      #- uses: actions/checkout@v2
       #- uses: ./.github/workflows/deploy
         #working-directory: reactapp/frontend/
       - name: build
